@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Blog & Portfolio CMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 bg-white shadow-lg flex-shrink-0">
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex items-center space-x-3">
+                    <div class="h-10 w-10 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center">
+                        <i data-lucide="layout-dashboard" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-gray-900">CMS Panel</h1>
+                        <p class="text-xs text-gray-500">Content Management</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="p-4 space-y-1">
+                <a href="dashboard.html" class="sidebar-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="posts.html" class="sidebar-link">
+                    <i data-lucide="file-text"></i>
+                    <span>Blog Posts</span>
+                </a>
+                <a href="portfolio.html" class="sidebar-link">
+                    <i data-lucide="briefcase"></i>
+                    <span>Portfolio</span>
+                </a>
+                <a href="media.html" class="sidebar-link">
+                    <i data-lucide="image"></i>
+                    <span>Media Library</span>
+                </a>
+                <a href="settings.html" class="sidebar-link active">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" onclick="logout()" class="sidebar-link text-red-600 hover:bg-red-50">
+                    <i data-lucide="log-out"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <header class="bg-white shadow-sm z-10">
+                <div class="px-6 py-4">
+                    <h2 class="text-2xl font-bold text-gray-900">Settings</h2>
+                    <p class="text-sm text-gray-600">Configure your site</p>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto p-6">
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <div class="px-6 py-4 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">General Settings</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <label class="label">Site Title</label>
+                                <input type="text" id="siteTitle" class="input-field" value="My Blog & Portfolio">
+                            </div>
+                            <div>
+                                <label class="label">Tagline</label>
+                                <input type="text" id="tagline" class="input-field" value="Developer & Content Creator">
+                            </div>
+                            <div>
+                                <label class="label">Site Description</label>
+                                <textarea id="siteDescription" rows="3" class="input-field">Welcome to my blog and portfolio. I share insights about web development, design, and technology.</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <div class="px-6 py-4 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">Social Media</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="label">Twitter</label>
+                                    <input type="url" id="twitter" class="input-field" placeholder="https://twitter.com/username">
+                                </div>
+                                <div>
+                                    <label class="label">Facebook</label>
+                                    <input type="url" id="facebook" class="input-field" placeholder="https://facebook.com/username">
+                                </div>
+                                <div>
+                                    <label class="label">LinkedIn</label>
+                                    <input type="url" id="linkedin" class="input-field" placeholder="https://linkedin.com/in/username">
+                                </div>
+                                <div>
+                                    <label class="label">GitHub</label>
+                                    <input type="url" id="github" class="input-field" placeholder="https://github.com/username">
+                                </div>
+                                <div>
+                                    <label class="label">Instagram</label>
+                                    <input type="url" id="instagram" class="input-field" placeholder="https://instagram.com/username">
+                                </div>
+                                <div>
+                                    <label class="label">YouTube</label>
+                                    <input type="url" id="youtube" class="input-field" placeholder="https://youtube.com/@username">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <div class="px-6 py-4 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">Theme Settings</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <label class="label">Primary Color</label>
+                                    <input type="color" id="primaryColor" class="input-field h-12" value="#059669">
+                                </div>
+                                <div>
+                                    <label class="label">Secondary Color</label>
+                                    <input type="color" id="secondaryColor" class="input-field h-12" value="#10B981">
+                                </div>
+                                <div>
+                                    <label class="label">Accent Color</label>
+                                    <input type="color" id="accentColor" class="input-field h-12" value="#047857">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="label">Font Family</label>
+                                <select id="fontFamily" class="input-field">
+                                    <option value="Inter">Inter</option>
+                                    <option value="Roboto">Roboto</option>
+                                    <option value="Open Sans">Open Sans</option>
+                                    <option value="Lato">Lato</option>
+                                    <option value="Poppins">Poppins</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <div class="px-6 py-4 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">SEO Settings</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <label class="label">Default Meta Title</label>
+                                <input type="text" id="metaTitle" class="input-field" value="My Blog & Portfolio | Developer & Content Creator">
+                            </div>
+                            <div>
+                                <label class="label">Default Meta Description</label>
+                                <textarea id="metaDescription" rows="2" class="input-field">Discover insights about web development, design, and technology. View my portfolio and read my latest blog posts.</textarea>
+                            </div>
+                            <div>
+                                <label class="label">Keywords (comma separated)</label>
+                                <input type="text" id="keywords" class="input-field" value="web development, portfolio, blog, technology">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <div class="px-6 py-4 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">Analytics</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <label class="label">Google Analytics ID</label>
+                                <input type="text" id="googleAnalytics" class="input-field" placeholder="G-XXXXXXXXXX">
+                            </div>
+                            <div>
+                                <label class="label">Google Tag Manager ID</label>
+                                <input type="text" id="googleTagManager" class="input-field" placeholder="GTM-XXXXXXX">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button onclick="saveSettings()" class="btn-primary">
+                            <i data-lucide="save" class="w-5 h-5"></i>
+                            Save Settings
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        lucide.createIcons();
+        checkAuth();
+
+        function loadSettings() {
+            const settings = JSON.parse(localStorage.getItem('siteSettings')) || {};
+            
+            document.getElementById('siteTitle').value = settings.siteTitle || 'My Blog & Portfolio';
+            document.getElementById('tagline').value = settings.tagline || 'Developer & Content Creator';
+            document.getElementById('siteDescription').value = settings.siteDescription || 'Welcome to my blog and portfolio.';
+            
+            document.getElementById('twitter').value = settings.twitter || '';
+            document.getElementById('facebook').value = settings.facebook || '';
+            document.getElementById('linkedin').value = settings.linkedin || '';
+            document.getElementById('github').value = settings.github || '';
+            document.getElementById('instagram').value = settings.instagram || '';
+            document.getElementById('youtube').value = settings.youtube || '';
+            
+            document.getElementById('primaryColor').value = settings.primaryColor || '#059669';
+            document.getElementById('secondaryColor').value = settings.secondaryColor || '#10B981';
+            document.getElementById('accentColor').value = settings.accentColor || '#047857';
+            document.getElementById('fontFamily').value = settings.fontFamily || 'Inter';
+            
+            document.getElementById('metaTitle').value = settings.metaTitle || 'My Blog & Portfolio';
+            document.getElementById('metaDescription').value = settings.metaDescription || '';
+            document.getElementById('keywords').value = settings.keywords || '';
+            
+            document.getElementById('googleAnalytics').value = settings.googleAnalytics || '';
+            document.getElementById('googleTagManager').value = settings.googleTagManager || '';
+        }
+
+        function saveSettings() {
+            const settings = {
+                siteTitle: document.getElementById('siteTitle').value,
+                tagline: document.getElementById('tagline').value,
+                siteDescription: document.getElementById('siteDescription').value,
+                twitter: document.getElementById('twitter').value,
+                facebook: document.getElementById('facebook').value,
+                linkedin: document.getElementById('linkedin').value,
+                github: document.getElementById('github').value,
+                instagram: document.getElementById('instagram').value,
+                youtube: document.getElementById('youtube').value,
+                primaryColor: document.getElementById('primaryColor').value,
+                secondaryColor: document.getElementById('secondaryColor').value,
+                accentColor: document.getElementById('accentColor').value,
+                fontFamily: document.getElementById('fontFamily').value,
+                metaTitle: document.getElementById('metaTitle').value,
+                metaDescription: document.getElementById('metaDescription').value,
+                keywords: document.getElementById('keywords').value,
+                googleAnalytics: document.getElementById('googleAnalytics').value,
+                googleTagManager: document.getElementById('googleTagManager').value
+            };
+            
+            localStorage.setItem('siteSettings', JSON.stringify(settings));
+            showToast('Settings saved successfully!', 'success');
+        }
+
+        loadSettings();
+    </script>
+</body>
+</html>
